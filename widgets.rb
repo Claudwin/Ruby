@@ -2,18 +2,19 @@ def ask(question)
     print question + " "
     gets.chomp
 end
+
 def price(quantity)
-    if quantity <= 49 
-        total = quantity * 10
-    elsif quantity >= 50 && <= 99
-        total = quantity * 9
-    else quantity >= 100
-        total = quantity * 8
+    if quantity >= 100 
+        price_per_unit = 8
+    elsif quantity >= 50 && quantity < 100
+        price_per_unit = 9
+    else 
+        price_per_unit  = 10
     end
-    return total
+    quantity * price_per_unit
 end
 puts "Welcome to the widgets store"
 answer = ask("How many widgets are you ordering?")
 number = answer.to_i
-final = price(number)
-puts "The total cost for #{number} widgets is $#{number * 10}"
+total = price(number)
+puts "The total cost for #{number} widgets is $#{total}"
